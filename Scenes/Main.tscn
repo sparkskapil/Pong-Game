@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Components/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Components/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Components/Paddle.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 526, 300 )
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 2 )
+
+[node name="TopWall" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, -10 )
+scale = Vector2( 55, 1 )
+
+[node name="BottomWall" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 610 )
+scale = Vector2( 55, 1 )
+
+[node name="LeftWall" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, 300 )
+scale = Vector2( 1, 30 )
+
+[node name="RightWall" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1034, 300 )
+scale = Vector2( 1, 30 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 512, 300 )
+Speed = 300
+
+[node name="Paddle_Player_1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 300 )
+Speed = 250
+UP_KEY = "W"
+DOWN_KEY = "S"
+
+[node name="Paddle_Player_2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 984, 300 )
+Speed = 250
+UP_KEY = "Up"
+DOWN_KEY = "Down"
+
+[node name="Score_P1" type="Label" parent="."]
+margin_left = 0.5
+margin_top = 20.0
+margin_right = 32.5
+margin_bottom = 52.0
+rect_scale = Vector2( 3, 3 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_colors/font_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+text = "0
+"
+align = 1
+valign = 1
+uppercase = true
+max_lines_visible = 1
+
+[node name="Score_P2" type="Label" parent="."]
+margin_left = 928.0
+margin_top = 20.0
+margin_right = 960.0
+margin_bottom = 52.0
+rect_scale = Vector2( 3, 3 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_colors/font_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+text = "0
+"
+align = 1
+valign = 1
+uppercase = true
+max_lines_visible = 1
